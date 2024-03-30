@@ -1,4 +1,6 @@
 import csv
+
+
 def generate_hash(s: str):
     alphabet = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'
     d = {l: i for i, l in enumerate(alphabet, 1)}
@@ -13,7 +15,7 @@ def generate_hash(s: str):
 
 
 student_with_hash = []
-with open('students.csv', encoding='utf8') as file:
+with open('students.csv', encoding='utf-8') as file:
     reader = list(csv.DictReader(file, delimiter=',', quotechar='"'))
     for row in reader:
         row['id'] = generate_hash(row['Name'])
